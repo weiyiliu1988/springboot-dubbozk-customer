@@ -28,6 +28,15 @@ public class CustomerController {
 		return consumerService.getCityByName("luoyang");
 	}
 
+	@RequestMapping(path = "/test", method = RequestMethod.GET)
+	public String test() {
+		return test1();
+	}
+
+	public String test1() {
+		return "hello world! er, what's your name?";
+	}
+
 	@RequestMapping(path = "/memory/dead/loop", method = RequestMethod.GET)
 	public String testMemory() {
 		logger.debug("线程启动");
@@ -37,7 +46,8 @@ public class CustomerController {
 			public void run() {
 				int i = 1;
 				while (true) {
-					logger.debug("线程启动==========> 次数:{}", i++);
+					logger.debug("线程启动==========> 循环次数:{}", i++);
+					System.out.println("线程启动==========> 循环次数:" + i);
 				}
 			}
 

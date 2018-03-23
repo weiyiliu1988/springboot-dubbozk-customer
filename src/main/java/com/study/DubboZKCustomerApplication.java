@@ -3,11 +3,13 @@ package com.study;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @author LIU
  *
  */
+@EnableAspectJAutoProxy
 @SpringBootApplication
 public class DubboZKCustomerApplication {
 

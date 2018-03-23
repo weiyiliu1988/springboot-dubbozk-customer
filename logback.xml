@@ -1,0 +1,41 @@
+<configuration>
+
+	<conversionRule conversionWord="coloredLevel"
+		converterClass="play.api.Logger$ColoredLevel" />
+
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<prudent>true</prudent>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>E://ZOOKEEPER//appLog//log-customer-%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+
+	<!-- The logger name is typically the Java/Scala package name. This configures 
+		the log level to log at for a package and its children packages. -->
+	<!-- <logger name="play" level="INFO" /> <logger name="application" level="DEBUG" 
+		/> <logger name="mappers" level="DEBUG" /> -->
+
+	<logger name="com.study" level="DEBUG">
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<root level="DEBUG">
+		<appender-ref ref="FILE" />
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
